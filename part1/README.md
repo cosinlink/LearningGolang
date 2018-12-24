@@ -1,2 +1,3 @@
 - 1.Go中的数组是值类型，换句话说，如果你将一个数组赋值给另外一个数组，那么，实际上就是将整个数组拷贝一份
 - 2.不错的文章： [Go语言的堆栈分析](https://www.cnblogs.com/zeeman/p/4291499.html)
+- 3.GC详解: [Golang GC 垃圾回收机制详解](https://blog.csdn.net/u010649766/article/details/80582153)
