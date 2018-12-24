@@ -2,3 +2,5 @@
 - 2.不错的文章： [Go语言的堆栈分析](https://www.cnblogs.com/zeeman/p/4291499.html)
 - 3.GC详解: [Golang GC 垃圾回收机制详解](https://blog.csdn.net/u010649766/article/details/80582153)
 - 4.GC的历史 [为Go语言GC正名－2秒到1毫秒的演变史 ](https://studygolang.com/articles/7516)
+- 5.GC实践: [GC实践](https://www.zhihu.com/question/21615032)
+- 6.GO语言的优势: [Go优势-腾讯云的回答](https://www.zhihu.com/question/21409296/answer/421089971)
