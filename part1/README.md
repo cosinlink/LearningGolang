@@ -5,3 +5,4 @@
 - 5.GC实践: [GC实践](https://www.zhihu.com/question/21615032)
 - 6.GO语言的优势: [Go优势-腾讯云的回答](https://www.zhihu.com/question/21409296/answer/421089971)
 - 7.Golang大佬的博客: [大佬博客](http://legendtkl.com/categories/golang/)
+- 8.[golang源码分析之channel的底层实现](https://blog.csdn.net/qq_25870633/article/details/83388952)
