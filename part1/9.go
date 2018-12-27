@@ -43,10 +43,10 @@ func Add_big(a,b,c []int ) {
 func main() {
 	//fmt.Println( math.Pow(2, 256) )
 	a,b  := make([]int, 100), make([]int ,100)
-	pow_2(256, a,b)
+	powerBy2(256, a,b)
 }
 
-func pow_2(num int, a,b []int)  {
+func powerBy2(num int, a,b []int)  {
 	a[0] = 1
 	a[1] = 1
 
