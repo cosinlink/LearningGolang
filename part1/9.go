@@ -8,7 +8,7 @@ import (
 )
 
 const limit  =  1000
-
+// this is github.com
 /*
 	压位高精度加法, limit为单个数的最大上限
 	a + b = c
