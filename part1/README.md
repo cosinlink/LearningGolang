@@ -12,3 +12,4 @@
     - 1.函数中的局部值类型变量存放在栈,包括数组也是,但是如果变量有逃逸,那么放在堆中,切片也是放在堆中
     - 2.Golang中int值类型所占字节与操作系统相关,如果是64位系统则int即为int64,占8个字节,如果32位系统则int为int32
 - 12.[Go语言机制之逃逸分析](https://studygolang.com/articles/12444)
+- 13.[深入理解golang 的栈](https://www.jianshu.com/p/7ec9acca6480)
