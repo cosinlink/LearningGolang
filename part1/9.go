@@ -1,4 +1,4 @@
-package main
+package part1
 
 import (
 	"fmt"
@@ -40,17 +40,12 @@ func Add_big(a,b,c []int ) {
 
 }
 
-func main() {
-	//fmt.Println( math.Pow(2, 256) )
-	a,b  := make([]int, 100), make([]int ,100)
-	powerBy2(256, a,b)
-}
 
 /*
 	求2^num,通过压位高精度求解,并且打印出来,有很多细节需要注意
 	比如打印的时候 前面要加0
 */
-func powerBy2(num int, a,b []int)  {
+func PowerBy2(num int, a,b []int)  {
 	a[0] = 1
 	a[1] = 1
 
