@@ -9,3 +9,6 @@
 - 9.go的底层分析: [golang源码分析之select的底层实现](https://blog.csdn.net/qq_25870633/article/details/83339538)
 - 10.[初识Go语言](https://www.cnblogs.com/yinzhengjie/p/10141098.html)
 - 11.[go语言的局部变量在堆上还是栈上？](https://www.cnblogs.com/howo/p/9417927.html)
+    - 1.函数中的局部值类型变量存放在栈,包括数组也是,但是如果变量有逃逸,那么放在堆中,切片也是放在堆中
+    - 2.Golang中int值类型所占字节与操作系统相关,如果是64位系统则int即为int64,占8个字节,如果32位系统则int为int32
+- 12.[Go语言机制之逃逸分析](https://studygolang.com/articles/12444)

@@ -53,10 +53,10 @@ func PowerBy2(num int, a,b []int)  {
 	for i:=1; i<=num; i++ {
 		copy(b, a)
 		Add_big( a, b, a )
-
-		fmt.Printf("2^%d:  ", i )
-		printX(a)
 	}
+
+	fmt.Printf("2^%d:  ", num )
+	printX(a)
 }
 
 
@@ -70,5 +70,5 @@ func printX(a []int) {
 	}
 
 	result = strconv.Itoa( a[a[0]] ) + result
-	fmt.Println(result + "  " , len(result))
+	fmt.Println(result + "   length=" , len(result))
 }
