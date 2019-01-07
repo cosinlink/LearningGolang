@@ -13,3 +13,5 @@
     - 2.Golang中int值类型所占字节与操作系统相关,如果是64位系统则int即为int64,占8个字节,如果32位系统则int为int32
 - 12.[Go语言机制之逃逸分析](https://studygolang.com/articles/12444)
 - 13.[深入理解golang 的栈](https://www.jianshu.com/p/7ec9acca6480)
+- 14.[记一次golang gc优化过程](https://www.jianshu.com/p/9949faa989d1)
+- 15.[论golang是世界上最好的语言](https://www.jianshu.com/p/ea33554bf753)
