@@ -1,11 +1,16 @@
 package main
 
-import "LearningGolang/part1"
+import (
+	"LearningGolang/part1"
+	"LearningGolang/part2"
+)
 
 func main()  {
 	//call_part1()
 	//part1.PrintAddress()
-	part1.TestAddress()
+	//part1.TestAddress()
+
+	part2.TestSlice()
 }
 
 

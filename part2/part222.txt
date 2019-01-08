@@ -1,4 +1,0 @@
-this is master AND dev
-this is the version of  rebasing local and github
-add sth of dev
-lululu
