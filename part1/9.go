@@ -72,3 +72,4 @@ func printX(a []int) {
 	result = strconv.Itoa( a[a[0]] ) + result
 	fmt.Println(result + "   length=" , len(result))
 }
+
