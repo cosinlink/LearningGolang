@@ -21,14 +21,18 @@ func main()  {
 	//part1.TestSize()
 	//part1.TestByteArr()
 	//part1.TestStringCopy()
-	part1.TestHeap()
+	//part1.TestHeap()
+	//fmt.Println(part1.GetRandomCommonName())
+	//fmt.Println(part1.GetRandomCommonName())
+	//fmt.Println(part1.GetRandomCommonName())
+	//fmt.Println(part1.GetRandomCommonName())
+	part1.TestUnixTimestamp()
 	//part1.TestConfig()
 	//part1.TestStringRange()
 	//part2.TestSlice()
 
 
 }
-
 
 func call_part1() {
 	a,b  := make([]int, 100), make([]int ,100)

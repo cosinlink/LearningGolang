@@ -1,19 +1,26 @@
 package part1
 
 import (
+	"container/heap"
 	"fmt"
-	"math/rand"
-	"sort"
+	"github.com/BXA/bxa/core/types"
 	"strconv"
 	"time"
 )
 
+const defaultLeng = 10000
 
-const defaultLeng = 10000000
 // the BidName which has been bidden correspond to a HeapNode to record the position of the BidName in Heap
 type HeapNode struct {
 	BidName string
 	Amount  uint64
+}
+
+type Bid struct {
+	BidderAddress types.Address
+	Amount        uint64
+	BidTime       uint32 //time by block_height
+	IsClosed      bool
 }
 
 type BidHeap struct {
@@ -21,7 +28,7 @@ type BidHeap struct {
 	LengthNode *HeapNode
 }
 
-func (bidHeap *BidHeap) Copy(dst, src *HeapNode){
+func (bidHeap *BidHeap) Copy(dst, src *HeapNode) {
 	dst.Amount = src.Amount
 	dst.BidName = src.BidName
 }
@@ -44,13 +51,13 @@ func (bidHeap *BidHeap) Swap(i, j int) {
 	bidHeap.Copy(bidHeap.HeapNodes[j], tmp)
 }
 
-func (bidHeap *BidHeap) Push(heapNode *HeapNode) {
+func (bidHeap *BidHeap) Push(x interface{}) {
+	heapNode := x.(*HeapNode)
 	bidHeap.HeapNodes = append(bidHeap.HeapNodes, heapNode)
 	bidHeap.LengthNode.Amount++
 }
 
-
-func (bidHeap *BidHeap) Pop()  *HeapNode{
+func (bidHeap *BidHeap) Pop() interface{} {
 
 	n := bidHeap.LengthNode.Amount
 	bidHeap.Swap(0, int(n-1))
@@ -64,8 +71,8 @@ func (bidHeap *BidHeap) Pop()  *HeapNode{
 
 func newBidHeap() (*BidHeap) {
 	lengthNode := &HeapNode{
-		BidName:"Length",
-		Amount:defaultLeng,
+		BidName: "Length",
+		Amount:  defaultLeng,
 	}
 	return &BidHeap{
 		make([]*HeapNode, defaultLeng),
@@ -74,32 +81,37 @@ func newBidHeap() (*BidHeap) {
 }
 
 func TestHeap() {
-	bidHeap:=newBidHeap()
 
-	for i:=0; i<defaultLeng; i++{
+	bid := Bid{}
+	fmt.Println(bid)
+
+
+	bidHeap := newBidHeap()
+
+	for i := 0; i < defaultLeng; i++ {
 		node := &HeapNode{
-			strconv.Itoa(defaultLeng) + " : hyz",
-			uint64(rand.Intn(100000)),
+			strconv.Itoa(i) + " : hyz",
+			uint64(i),
 		}
 		bidHeap.HeapNodes[i] = node
 	}
 
-	sort.Sort(bidHeap)
+	heap.Init(bidHeap)
 
-
-
-
-	start:= time.Now()
+	start := time.Now()
 	node := &HeapNode{
 		strconv.Itoa(defaultLeng) + " : hyz",
-		uint64(rand.Intn(100000)),
+		uint64(100000111),
 	}
-	bidHeap.Push(node)
-	end:=time.Now()
-
-
+	heap.Push(bidHeap, node)
+	end := time.Now()
 
 	fmt.Println(end.Sub(start))
 
-
+	n := defaultLeng / 2 -1
+	for i:=0; i< n; i++ {
+		if bidHeap.HeapNodes[i].Amount < bidHeap.HeapNodes[i*2+1].Amount || bidHeap.HeapNodes[i].Amount < bidHeap.HeapNodes[i*2+2].Amount {
+			fmt.Println("wrong heap" + strconv.Itoa(i))
+		}
+	}
 }
