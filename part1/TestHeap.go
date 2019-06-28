@@ -3,7 +3,7 @@ package part1
 import (
 	"container/heap"
 	"fmt"
-	"github.com/BXA/bxa/core/types"
+	"github.com/xtario/xtar/core/types"
 	"strconv"
 	"time"
 )

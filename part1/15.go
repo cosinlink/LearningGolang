@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/itchyny/base58-go"
 	"math/big"
-	com "github.com/BXA/bxa/common"
+	com "github.com/xtario/xtar/common"
 	"strconv"
 )
 

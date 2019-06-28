@@ -2,7 +2,7 @@ package part1
 
 import (
 	"fmt"
-	"github.com/BXA/bxa/common/errors"
+	"github.com/xtario/xtar/common/errors"
 	"math/rand"
 	"time"
 	"unsafe"
@@ -202,4 +202,14 @@ func TestUnixTimestamp() {
 	//var bidTime uint32 = 1561105281
 	fmt.Println(time.Unix(time.Now().Unix(),1000).Format("2006-01-02 15:04:05"))
 
+}
+
+func TestSep(){
+	a:=10
+	b:=3
+	c:=a/b
+	d:=float64(a)/float64(b)
+	fmt.Println(a/b, c, d)
+	e:=uint64(d*10)
+	fmt.Println(e)
 }
