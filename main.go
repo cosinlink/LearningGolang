@@ -26,7 +26,7 @@ func main()  {
 	//fmt.Println(part1.GetRandomCommonName())
 	//fmt.Println(part1.GetRandomCommonName())
 	//fmt.Println(part1.GetRandomCommonName())
-	part1.TestSep()
+	part1.TestErrorf()
 	//part1.TestConfig()
 	//part1.TestStringRange()
 	//part2.TestSlice()

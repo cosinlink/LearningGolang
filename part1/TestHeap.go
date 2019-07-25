@@ -4,11 +4,12 @@ import (
 	"container/heap"
 	"fmt"
 	"github.com/xtario/xtar/core/types"
+	"math/rand"
 	"strconv"
 	"time"
 )
 
-const defaultLeng = 10000
+const defaultLeng = 100
 
 // the BidName which has been bidden correspond to a HeapNode to record the position of the BidName in Heap
 type HeapNode struct {
@@ -40,7 +41,9 @@ func (bidHeap *BidHeap) Len() int {
 }
 
 func (bidHeap *BidHeap) Less(i, j int) bool {
-	return bidHeap.HeapNodes[i].Amount > bidHeap.HeapNodes[j].Amount
+	return bidHeap.HeapNodes[i].Amount > bidHeap.HeapNodes[j].Amount ||
+		 (bidHeap.HeapNodes[i].Amount == bidHeap.HeapNodes[j].Amount && i>j)
+
 }
 
 func (bidHeap *BidHeap) Swap(i, j int) {
@@ -60,12 +63,14 @@ func (bidHeap *BidHeap) Push(x interface{}) {
 func (bidHeap *BidHeap) Pop() interface{} {
 
 	n := bidHeap.LengthNode.Amount
-	bidHeap.Swap(0, int(n-1))
+	if n == 0 {
+		return nil
+	}
 
 	old := bidHeap.HeapNodes
 	res := old[n-1]
 	bidHeap.HeapNodes = old[0 : n-1]
-
+	bidHeap.LengthNode.Amount--
 	return res
 }
 
@@ -85,13 +90,17 @@ func TestHeap() {
 	bid := Bid{}
 	fmt.Println(bid)
 
-
 	bidHeap := newBidHeap()
 
 	for i := 0; i < defaultLeng; i++ {
 		node := &HeapNode{
-			strconv.Itoa(i) + " : hyz",
-			uint64(i),
+			Amount: uint64(rand.Intn(20)),
+		}
+
+		if i < 10 {
+			node.BidName = "time0" + strconv.Itoa(i) + "  amount:"
+		} else {
+			node.BidName = "time" + strconv.Itoa(i) + "  amount:"
 		}
 		bidHeap.HeapNodes[i] = node
 	}
@@ -108,10 +117,14 @@ func TestHeap() {
 
 	fmt.Println(end.Sub(start))
 
-	n := defaultLeng / 2 -1
-	for i:=0; i< n; i++ {
+	n := defaultLeng/2 - 1
+	for i := 0; i < n; i++ {
 		if bidHeap.HeapNodes[i].Amount < bidHeap.HeapNodes[i*2+1].Amount || bidHeap.HeapNodes[i].Amount < bidHeap.HeapNodes[i*2+2].Amount {
 			fmt.Println("wrong heap" + strconv.Itoa(i))
 		}
+	}
+
+	for i := 0; i < 100; i++ {
+		fmt.Println(heap.Pop(bidHeap).(*HeapNode))
 	}
 }

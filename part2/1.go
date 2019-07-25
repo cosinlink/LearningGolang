@@ -9,3 +9,4 @@ func TestSlice() {
 	fmt.Println(slice)
 	fmt.Println(newSlice)
 }
+
