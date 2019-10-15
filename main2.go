@@ -18,6 +18,12 @@ func calVoteWeight(now uint32, stakeWeight uint64) uint64 {
 	return stakeWeight * uint64(math.Pow(2, float64(weight)))
 }
 
+func calVoteWeight2(now uint32) float64 {
+	precision := math.Pow10(4)
+	weight := math.Floor(float64(now-GenesisTimestamp)/(7*24*3600*52)*precision) / precision
+	return math.Pow(2, float64(weight))
+}
+
 func main() {
 	fmt.Println("---------------")
 	log.Println("------ log printl ----")
@@ -41,7 +47,7 @@ func func_log2file() {
 
 func func_log2fileAndStdout() {
 	//创建日志文件
-	f, err := os.OpenFile("test.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	f, err := os.OpenFile("float.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -65,10 +71,10 @@ func testCalToFile(logger *log.Logger) {
 	timeLeng := uint32(3600 * 24 * 6000)
 	//timeLeng = uint32(3600)
 	//res := uint64(0)
-	var now, last uint64
+	var now, last float64
 	for i := uint32(1); i <= timeLeng; i += 1 {
 
-		now = calVoteWeight(i+GenesisTimestamp, 1)
+		now = calVoteWeight2(i + GenesisTimestamp)
 		if last != now {
 			logger.Println(i, now)
 		}
