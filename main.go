@@ -2,6 +2,7 @@ package main
 
 import (
 	"LearningGolang/part1"
+	"LearningGolang/part2"
 )
 
 func main() {
@@ -30,6 +31,7 @@ func main() {
 	//part1.TestConfig()
 	//part1.TestStringRange()
 	//part2.TestSlice()
+	part2.PrintOs()
 }
 
 func call_part1() {

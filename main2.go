@@ -1,4 +1,4 @@
-﻿package main
+package main
 
 import (
 	"fmt"
@@ -6,6 +6,8 @@ import (
 	"log"
 	"math"
 	"os"
+	"runtime"
+	"strings"
 )
 
 const (
@@ -26,7 +28,7 @@ func calVoteWeight2(now uint32) float64 {
 
 func main() {
 	fmt.Println("---------------")
-	log.Println("------ log printl ----")
+	log.Println("------test calVoteWeight in different OS ----")
 	//func_log2file()
 	func_log2fileAndStdout()
 }
@@ -46,8 +48,16 @@ func func_log2file() {
 }
 
 func func_log2fileAndStdout() {
+	fileName := "print_float_"
+	osStr := runtime.GOOS
+	if strings.Contains(osStr, "windows") {
+		fileName += "windows.log"
+	} else if strings.Contains(osStr, "darwin") {
+		fileName += "unix.log"
+	}
+
 	//创建日志文件
-	f, err := os.OpenFile("float_windows.log", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+	f, err := os.OpenFile(fileName, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
